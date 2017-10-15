@@ -26,7 +26,9 @@ SECRET_KEY = '8l$c&2f09q3#cl1*4(112m1n*&ewom)=kbyqrk+8-*mk0hr@%#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'lmsimpacta.azurewebsites.net'    
+]
 
 
 # Application definition

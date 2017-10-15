@@ -1,0 +1,8 @@
+article p {
+    text-align: justify;
+}
+
+p.importante {
+    font-weight: bold;
+    text-align: center;
+}

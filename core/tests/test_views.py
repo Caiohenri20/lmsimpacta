@@ -12,9 +12,3 @@ class IndexViewTestCase(TestCase):
         client = Client()
         response = client.get('/')
         self.assertTemplateUsed(response,'index.html')
-
-class NoticiasViewTestCase(TestCase):
-    def test_status_code(self):
-        client = Client()
-        response = client.get('/noticias')
-        self.assertEquals(response.status_code, 200)

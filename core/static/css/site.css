@@ -45,8 +45,23 @@ nav.menu a:hover {
 footer.footer {
     background-color:#E0E0E0;
     padding: 10px 5px;
+    text-align: center;
 }
 
 main {
     padding: 0 10px;
+}
+
+h1.main {
+    font-size: 1.8em;
+    color:gray;
+    text-align: center;
+}
+h1.main::after {
+    background-color:blue; 
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 172px;
+    height: 8px;
 }

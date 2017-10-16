@@ -140,9 +140,8 @@ IF EXIST "%DEPLOYMENT_TARGET%\manage.py" (
     IF NOT EXIST "%DEPLOYMENT_TARGET%\.skipDjango" (
       echo First lets run Django tests
       
-      env\scripts\python manage.py test
-      IF %ERRORLEVEL% GEQ 1 EXIT /B 2
-      
+      env\scripts\python manage.py test || EXIT /B 1
+
       echo Collecting Django static files. You can skip Django specific steps with a .skipDjango file.
       IF NOT EXIST "%DEPLOYMENT_TARGET%\static" (
         MKDIR "%DEPLOYMENT_TARGET%\static"

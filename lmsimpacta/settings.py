@@ -74,11 +74,14 @@ WSGI_APPLICATION = 'lmsimpacta.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    'default' : {
+        'ENGINE':'sql_server.pyodbc',
+        'NAME' : 'lmsbanco',
+        'HOST' : 'lmsbanco.database.windows.net',
+        'USER' : 'ydirickson@lmsbanco.database.windows.net',
+        'PASSWORD': '@ILam10%'
     }
-}
+}   
 
 
 # Password validation
@@ -120,6 +123,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+
+AUTH_USER_MODEL = 'core.Usuario'
 
 try:
     from .local_settings import *

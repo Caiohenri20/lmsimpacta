@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from core.views import index
+from core.views import index, contato
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',index)
+    url(r'^contato/', contato, name="contato"),
+    url(r'^$',index, name="index")
 ]

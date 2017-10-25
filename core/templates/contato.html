@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'css/contato.css' %}">
+{% endblock %}
+
+{% block main %}
+<section class="contato">    
+    <form class="normal" method="POST" action="/contato/">
+        <h1>Contato</h1>
+        {% csrf_token %}
+        <label for="nome">Nome</label>
+        <input name="nome" id="nome" placeholder="Digite seu Nome..." required />
+        <label for="email">E-Mail</label>
+        <input name="email" id="email" placeholder="Digite seu Email..." type="email" required />
+        <label for="assunto">Assunto</label>
+        <select name="assunto" id="assunto" required>
+            <option value="">- Selecione -</option>
+            <option value="SUG">Sugestão</option>
+            <option value="ERR">Erros na Página</option>
+            <option value="REC">Reclamações</option>
+        </select>
+        <label for="mensagem">Mensagem</label>
+        <textarea name="mensagem" id="mensagem" placeholde="Mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+{% endblock  %}

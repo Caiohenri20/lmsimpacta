@@ -36,7 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    # MEUS APPS
+    'core',
+    'curriculo'
 ]
 
 MIDDLEWARE = [
@@ -124,7 +126,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
-AUTH_USER_MODEL = 'core.Usuario'
+#AUTH_USER_MODEL = 'core.Usuario'
 
 try:
     from .local_settings import *

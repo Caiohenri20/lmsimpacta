@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'css/curso.css' %}" />
+{% endblock %}
+
+{% block main %}
+<section class="cursos">    
+
+    {% for curso in curso_list %}
+        <section class="curso">
+            <a href="#">
+                <article class="item-curso">
+                    <img src="{% static 'img/cursos/' %}{{ curso.sigla | lower }}.jpg" class="imagem-curso"/>
+                    <h1>{{ curso.nome }}</h1>
+                </article>
+            </a>
+        </section>
+    {% endfor %}
+
+</section>
+{% endblock  %}

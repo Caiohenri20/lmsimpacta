@@ -15,7 +15,7 @@
     <header class="header">
         <nav class="menu">
             <a href="{% url 'index' %}"><img src="{% static 'img/logo-novo.png' %}" alt="logo da impacta" class="logo"/></a>
-            <a href="#">Cursos</a>
+            <a href="{% url 'curriculo:cursos' %}">Cursos</a>
             <a href="#">Notícias</a>
             <a href="{% url 'contato' %}">Contato</a>
         </nav>

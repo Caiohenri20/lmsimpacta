@@ -1,0 +1,7 @@
+section.curso {
+    margin: 4em auto;
+}
+
+article.item-curso {
+    display: flex;  
+}

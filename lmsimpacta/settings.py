@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # MEUS APPS
     'core',
-    'curriculo'
+    'curriculo',
+    'contas'
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'contas.Usuario'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -125,8 +127,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
-
-#AUTH_USER_MODEL = 'core.Usuario'
 
 try:
     from .local_settings import *

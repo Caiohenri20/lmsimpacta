@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from .views import CursosListView
+#from .views import CursosListView
 
 urlpatterns = [
-    url(r'^cursos', CursosListView.as_view(),name="cursos"),
+ #   url(r'^cursos', CursosListView.as_view(),name="cursos"),
 ]

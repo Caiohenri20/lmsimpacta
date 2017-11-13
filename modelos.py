@@ -18,18 +18,6 @@ class CursoTurma(models.Model):
         db_table = 'CURSO_TURMA'
         unique_together = (('curso', 'turma'),)
 
-
-class DisciplinaOfertada(models.Model):
-    id = models.IntegerField(primary_key=True)
-    disciplina = models.ForeignKey(Disciplina, models.DO_NOTHING)
-    ano = models.SmallIntegerField()
-    semestre = models.CharField(max_length=1)
-
-    class Meta:
-        managed = False
-        db_table = 'DISCIPLINA_OFERTADA'
-        unique_together = (('disciplina', 'ano', 'semestre'),)
-
 class Matricula(models.Model):
     aluno = models.ForeignKey(Aluno, models.DO_NOTHING, primary_key=True)
     turma = models.ForeignKey('Turma', models.DO_NOTHING)
@@ -38,28 +26,6 @@ class Matricula(models.Model):
         managed = False
         db_table = 'MATRICULA'
         unique_together = (('aluno', 'turma'),)
-
-
-class Periodo(models.Model):
-    id = models.IntegerField(primary_key=True)
-    grade_curricular = models.ForeignKey(GradeCurricular, models.DO_NOTHING)
-    numero = models.SmallIntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'PERIODO'
-        unique_together = (('grade_curricular', 'numero'),)
-
-
-class PeriodoDisciplina(models.Model):
-    periodo = models.ForeignKey(Periodo, models.DO_NOTHING, primary_key=True)
-    disciplina = models.ForeignKey(Disciplina, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'PERIODO_DISCIPLINA'
-        unique_together = (('periodo', 'disciplina'),)
-
 
 class Turma(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -72,6 +38,15 @@ class Turma(models.Model):
         managed = False
         db_table = 'TURMA'
         unique_together = (('disciplina_ofertada', 'identificador'),)
+
+class PeriodoDisciplina(models.Model):
+    periodo = models.ForeignKey(Periodo, models.DO_NOTHING, primary_key=True)
+    disciplina = models.ForeignKey(Disciplina, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'PERIODO_DISCIPLINA'
+        unique_together = (('periodo', 'disciplina'),)
 
 
 

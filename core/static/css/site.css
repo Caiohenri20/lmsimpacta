@@ -42,6 +42,10 @@ nav.menu a:hover {
     background-color: #5e97f6;
 }
 
+nav.menu .contas {
+    margin-left:auto;
+}
+
 footer.footer {
     background-color:#E0E0E0;
     padding: 10px 5px;

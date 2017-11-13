@@ -16,9 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from .views import CursosListView, curso
+from .views import aluno, professor
 
 urlpatterns = [
-    url(r'^cursos', CursosListView.as_view(),name="cursos"),
-    url(r'^curso/([A-Z,a-z]+)', curso,name="curso"),
+    url(r'^aluno', aluno,name="aluno"),
+    url(r'^professor', professor,name="professor"),
 ]

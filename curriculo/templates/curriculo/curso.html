@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'css/curso.css' %}" />
+{% endblock %}
+
+{% block main %}
+<section class="curso">    
+
+    {{ curso }}
+
+</section>
+{% endblock  %}

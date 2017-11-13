@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'css/contato.css' %}">
+{% endblock %}
+
+{% block main %}
+<section class="contato">    
+    <form class="normal" method="POST" action="">
+        <h1>Login</h1>
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Entrar</button>
+    </form>
+</section>
+{% endblock  %}

@@ -4,6 +4,10 @@ class Curso(models.Model):
     #id = models.IntegerField(primary_key=True)
     sigla = models.CharField(unique=True, max_length=5)
     nome = models.CharField(unique=True, max_length=50)
+    coordenador = models.OneToOneField(
+        "contas.Coordenador",
+        null=True
+    )
 
     def __str__(self):
         return self.nome
@@ -72,3 +76,38 @@ class Periodo(models.Model):
         verbose_name = 'período'
         verbose_name_plural = 'períodos'
         unique_together = (('grade', 'numero'),)
+
+class DisciplinaOfertada(models.Model):
+    
+    disciplina = models.ForeignKey(Disciplina)
+    ano = models.SmallIntegerField("Ano")
+    semestre = models.CharField("Semestre", max_length=1)
+
+    def __str__(self):
+        return "{}-{}-{}".format(self.disciplina.nome, self.ano, self.semestre)
+
+    class Meta:
+        managed = False
+        db_table = 'DISCIPLINA_OFERTADA'
+        verbose_name = 'oferta de disciplina'
+        verbose_name_plural = 'ofertas de disciplina'
+        unique_together = (('disciplina', 'ano', 'semestre'),)
+
+class Turma(models.Model):
+    
+    disciplina_ofertada = models.ForeignKey(DisciplinaOfertada, models.DO_NOTHING)
+    identificador = models.CharField(max_length=1)
+    turno = models.CharField(max_length=15, blank=True, null=True)
+    professor = models.ForeignKey("contas.Professor", blank=True, null=True)
+    alunos = models.ManyToManyField(
+        "contas.Aluno",
+        db_table="MATRICULA"
+    )
+
+    def __str__(self):
+        return "{}-{}".format(self.disciplina_ofertada,self.identificador)
+
+    class Meta:
+        managed = False
+        db_table = 'TURMA'
+        unique_together = (('disciplina_ofertada', 'identificador'),)

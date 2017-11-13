@@ -1,8 +1,12 @@
-CREATE TABLE CURSO (
+CREATE TABLE USUARIO (
     id    integer identity(1,1) not null,
-    sigla varchar(5) not null,
-    nome  varchar(50) not null,
-    CONSTRAINT pk_curso primary key (id),
-    CONSTRAINT sigla_unique UNIQUE (sigla),
-    CONSTRAINT nome_unique UNIQUE (nome)
+	ra	  integer not null,
+	password varchar(255) not null,
+    nome  varchar(150) not null,
+	email varchar(50) not null,
+	celular char(11),
+	perfil char(1) not null,
+	ativo bit not null default 1,
+    CONSTRAINT pk_usuario primary key (id),
+    CONSTRAINT un_usuario UNIQUE (ra)
 );

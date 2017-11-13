@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8l$c&2f09q3#cl1*4(112m1n*&ewom)=kbyqrk+8-*mk0hr@%#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     # MEUS APPS
     'core',
     'curriculo',
-    'contas'
+    'contas',
+    'restrito'
 ]
 
 MIDDLEWARE = [
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'lmsimpacta.wsgi.application'
 DATABASES = {
     'default' : {
         'ENGINE':'sql_server.pyodbc',
-        'NAME' : 'lmsbanco',
+        'NAME' : 'lmsimpacta-dev',
         'HOST' : 'lmsbanco.database.windows.net',
         'USER' : 'ydirickson@lmsbanco.database.windows.net',
         'PASSWORD': '@ILam10%'
@@ -120,6 +121,7 @@ USE_L10N = True
 USE_TZ = True
 
 AUTH_USER_MODEL = 'contas.Usuario'
+LOGIN_REDIRECT_URL = 'index'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

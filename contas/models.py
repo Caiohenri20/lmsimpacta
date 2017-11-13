@@ -74,3 +74,18 @@ class Professor(Usuario):
         db_table = 'PROFESSOR'
         verbose_name = "professor"
         verbose_name_plural = "professores"
+
+class Coordenador(Usuario):
+    parent_link = models.OneToOneField(
+        Usuario,
+        primary_key=True,
+        db_column="usuario_id",
+        parent_link=True
+    )
+    sala = models.CharField("Sala", max_length=3)
+
+    class Meta:
+        managed = False
+        db_table = 'COORDENADOR'
+        verbose_name = "coordenador"
+        verbose_name_plural = "coordenadores"

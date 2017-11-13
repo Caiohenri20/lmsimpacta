@@ -1,7 +1,7 @@
 from django import forms
 
-from .choices import PROFESSOR, ALUNO
-from .models import Aluno, Professor
+from .choices import PROFESSOR, ALUNO, COORDENADOR
+from .models import Aluno, Professor, Coordenador
 
 class AlunoForm(forms.ModelForm):
 
@@ -42,3 +42,23 @@ class ProfessorAlterarForm(forms.ModelForm):
     class Meta:
         model = Professor
         fields = ["nome", "email", "apelido"]
+
+class CoordenadorForm(forms.ModelForm):
+
+    def save(self, commit=True):
+        coordenador = super(CoordenadorForm,self).save(commit=False)
+        coordenador.set_password("123@mudar")
+        coordenador.perfil = COORDENADOR
+        if commit:
+            coordenador.save()
+        return coordenador
+
+    class Meta:
+        model = Coordenador
+        fields = ["ra", "nome", "email", "sala"]
+
+class CoordenadorAlterarForm(forms.ModelForm):
+
+    class Meta:
+        model = Coordenador
+        fields = ["nome", "email", "sala"]

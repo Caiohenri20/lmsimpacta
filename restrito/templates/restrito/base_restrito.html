@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'css/restrito.css' %}">
+{% endblock %}
+
+{% block main %}
+<section class="restrito">
+    <header>
+      <h1 class="main">{% block titulo_restrito %}Restrito{% endblock %}</h1>
+    </header>
+    <aside class="submenu">
+      <nav>
+        <ul>
+          <li class="titulo">Opções</li>
+          <li><a href="{% url 'restrito:aluno' %}" class="ativo">Principal</a></li>
+          <li><a href="{% url 'restrito:matricula' %}">Matrícula</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <section class="conteudo">
+      {% block restrito_conteudo %}{% endblock %}
+    </section>
+</section>
+{% endblock  %}

@@ -1,0 +1,54 @@
+section.restrito {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+section.restrito > * {
+    margin: 5px;
+}
+
+section.restrito header { width: 100%; }
+
+aside.submenu {
+    width: 200px; /* Set a width if you like */
+}
+
+aside.submenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside.submenu li.titulo {
+    background-color: #CECECE; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    font-weight: bold; /* Remove underline from links */
+    text-transform: uppercase;
+}
+
+aside.submenu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+aside.submenu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+aside.submenu a.ativo {
+    background-color: #0000ff;
+    color: white;
+}
+
+
+section.conteudo {
+    flex: 1;
+}
+
+section.conteudo h2 {
+    margin: 0;
+}

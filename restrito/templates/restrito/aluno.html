@@ -1,19 +1,18 @@
-{% extends "base.html" %}
+{% extends "restrito/base_restrito.html" %}
 {% load static %}
-{% block scripts %}
-    <link rel="stylesheet" href="{% static 'css/aluno.css' %}">
-{% endblock %}
 
-{% block main %}
-<section class="aluno">
-        <h1 class="main">Área do Aluno</h1>
-        <h2>Turmas</h2>
-        <ul>
-            {% for turma in turmas %}
-              <li>{{ turma }}</li>
-            {% empty %}
-              <li>Nenhuma turma ainda!</li>
-            {% endfor %}
-        </ul>
-</section>
+{% block titulo_restrito %}Área do Aluno{% endblock %}
+
+{% block restrito_conteudo %}
+      <h2>Turmas</h2>
+      <ul>
+          {% for turma in turmas %}
+            <li>
+              {{ turma }}
+            </li>
+          {% empty %}
+            <li>Nenhuma turma ainda!</li>
+          {% endfor %}
+      </ul>
+    </section>
 {% endblock  %}

@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from .views import aluno, professor
+from .views import aluno, professor, matricula
 
 urlpatterns = [
-    url(r'^aluno', aluno,name="aluno"),
-    url(r'^professor', professor,name="professor"),
+    url(r'^aluno/$', aluno, name="aluno"),
+    url(r'^aluno/matricula', matricula, name="matricula"),
+    url(r'^professor', professor, name="professor"),
 ]

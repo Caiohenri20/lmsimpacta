@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from .views import aluno, professor, matricula
+from .views import aluno, professor, matricula, questao_form
 
 urlpatterns = [
     url(r'^aluno/$', aluno, name="aluno"),
     url(r'^aluno/matricula', matricula, name="matricula"),
-    url(r'^professor', professor, name="professor"),
+    url(r'^professor/$', professor, name="professor"),
+    url(r'^professor/(?P<turma_id>[0-9]+)/questao/(?P<questao_id>[0-9]*)', questao_form, name="questao_form"),
 ]

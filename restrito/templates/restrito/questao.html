@@ -1,0 +1,14 @@
+{% extends "restrito/base_restrito.html" %}
+{% load static %}
+
+{% block titulo_restrito %}Área do Professor{% endblock %}
+
+{% block restrito_conteudo %}
+      <h2>Questão {{ questao }} </h2>
+      <p>Turma: {{ turma.disciplina_ofertada.disciplina }} {{ turma.disciplina_ofertada.semestre}}{{ turma.identificador }} </p>
+      <form method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+      </form>
+{% endblock  %}

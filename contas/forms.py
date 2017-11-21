@@ -28,7 +28,7 @@ class ProfessorForm(forms.ModelForm):
     def save(self, commit=True):
         professor = super(ProfessorForm,self).save(commit=False)
         professor.set_password("mudar@123")
-        professor.perfil = ALUNO
+        professor.perfil = PROFESSOR
         if commit:
             professor.save()
         return professor

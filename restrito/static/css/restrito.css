@@ -52,3 +52,12 @@ section.conteudo {
 section.conteudo h2 {
     margin: 0;
 }
+
+div.turma {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color:aqua;
+    display:inline-block;
+    width: 350px;
+    height: 350px;
+}

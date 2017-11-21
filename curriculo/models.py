@@ -111,3 +111,4 @@ class Turma(models.Model):
         managed = False
         db_table = 'TURMA'
         unique_together = (('disciplina_ofertada', 'identificador'),)
+        

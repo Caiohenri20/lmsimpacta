@@ -1,0 +1,37 @@
+{% extends "restrito/base_restrito.html" %}
+{% load static %}
+
+{% block titulo_restrito %}Área do Professor{% endblock %}
+
+{% block restrito_conteudo %}
+    {% if questao %}
+      <p>QUestão adicionada com sucesso!</p>
+    {% endif %}
+
+      <h2>Turmas</h2>
+      {% for turma in turmas %}
+        <div class="turma">
+          <h3>{{ turma.disciplina_ofertada.disciplina }}</h3>
+          <p>Turma: {{turma.disciplina_ofertada.semestre}}{{ turma.identificador }} - {{ turma.turno }}</p>
+          <p>Exercícios:
+            <ul>
+              {% for exercicio in turma.exercicios  %}
+                <li>
+                  <a href="{% url 'restrito:questao_form' turma_id=turma.id questao_id=exercicio.id %}">
+                    #{{ exercicio.numero }} para {{ exercicio.data_limite_entrega}}
+                  </a>
+                </li>
+              {% empty %}
+                <li> Não há exercícios </li>
+              {% endfor %}
+            </ul>
+          </p>
+          <div class="acoes">
+              <a href="{% url 'restrito:questao_form' turma_id=turma.id questao_id='' %}">Adicionar Exercício</a>
+          </div>
+        </div>
+      {% empty %}
+        Nenhuma turma ainda!
+      {% endfor %}
+    </section>
+{% endblock  %}
